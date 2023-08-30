@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { noHomeroValidator } from 'src/app/shared/utils/form-validators';
-import { Courses } from '../../models';
+import { Course } from '../../models';
 
 @Component({
   selector: 'app-course-form-dialog',
@@ -10,7 +10,7 @@ import { Courses } from '../../models';
   styleUrls: ['./course-form-dialog.component.scss'],
 })
 export class CoursesFormDialogComponent {
-  editingCourses?: Courses;
+  editingCourses?: Course;
   nameControl = new FormControl<string | null>(null, [
     Validators.required,
     Validators.minLength(2),
@@ -30,7 +30,7 @@ export class CoursesFormDialogComponent {
 
   constructor(
     private dialogRef: MatDialogRef<CoursesFormDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) private data?: Courses
+    @Inject(MAT_DIALOG_DATA) private data?: Course
   ) {
     // this.userForm = this.formBuilder.group({
     //   name: [null, [Validators.required, Validators.min(2)]],
@@ -39,7 +39,7 @@ export class CoursesFormDialogComponent {
     if (this.data) {
       this.editingCourses = this.data;
       this.nameControl.setValue(this.data.name);
-      this.descriptionControl.setValue(this.data.description);
+      
 
     }
   }

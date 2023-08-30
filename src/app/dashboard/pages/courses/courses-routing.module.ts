@@ -2,6 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { CommonModule } from '@angular/common';
 import { CoursesComponent } from './courses.component';
+import { CoursesDetailComponent } from './pages/courses-detail.component';
 import { NgModule } from '@angular/core';
 
 @NgModule({
@@ -13,6 +14,10 @@ import { NgModule } from '@angular/core';
         // /dashboard/courses
         path: '',
         component: CoursesComponent,
+      },
+      {
+        path: 'courses/:id',
+        component: CoursesDetailComponent
       }
       
       

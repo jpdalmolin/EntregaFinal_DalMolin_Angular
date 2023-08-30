@@ -8,7 +8,8 @@ export class UserMockService {
       surname: 'FAKE_SURNAME',
       email: 'fake@mail.com',
       password: '123456',
-      token:''
+      token:'',
+      courseId:1
     },
   ];
   getUsers(): User[] {

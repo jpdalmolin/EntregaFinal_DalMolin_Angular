@@ -14,6 +14,7 @@ import { appReducer } from './store';
 import eslocale from '@angular/common/locales/es-AR'
 import { registerLocaleData } from '@angular/common';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
 
 registerLocaleData(eslocale);
 
@@ -33,6 +34,7 @@ registerLocaleData(eslocale);
     HttpClientModule,
     StoreModule.forRoot(appReducer, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    EffectsModule.forRoot([]),
   ],
   providers: [
     {
