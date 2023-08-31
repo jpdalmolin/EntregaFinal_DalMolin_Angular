@@ -6,7 +6,8 @@
       "email": "asd@gmail.com",
       "password": "123456",
       "id": 1,
-      "token": "bG1Ptx4ZztwJwAoyjxQy"
+      "token": "bG1Ptx4ZztwJwAoyjxQy",
+      "courseId":1
     },
     {
       "name": "testeee",
@@ -14,7 +15,8 @@
       "email": "test@mail.com",
       "password": "123456",
       "id": 2,
-      "token": "bG1Ptx4ZztwJwBoyjxQy"
+      "token": "bG1Ptx4ZztwJwBoyjxQy",
+      "courseId":2
     }
   ],
   "class": [
@@ -31,14 +33,13 @@
   ],
   "courses": [
     {
-      "id": 2,
-      "name": "B",
-      "description": "Curso B"
+      "id": 1,
+      "name": "Curso B"
+      
     },
     {
-      "name": "CE",
-      "description": "curso CE",
-      "id": 3
+      "name": "Curso C",
+      "id": 2
     }
   ]
 }
