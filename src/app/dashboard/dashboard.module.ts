@@ -15,6 +15,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavMenuComponent } from './layout/nav-menu/nav-menu.component';
 import { NgModule } from '@angular/core';
+import { SharedModule } from '../shared/shared.module';
 import { ToolbarComponent } from './layout/toolbar/toolbar.component';
 import { UsersModule } from './pages/users/users.module';
 
@@ -34,6 +35,7 @@ import { UsersModule } from './pages/users/users.module';
     HomeModule,
     UsersModule,
     MatListModule,
+    SharedModule,
     RouterModule,
     ClassModule,
     CoursesModule,

@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { CoursesComponent } from './courses.component';
+import { CoursesDetailComponent } from './pages/courses-detail.component';
 import { CoursesEffects } from './store/courses.effects';
 import { CoursesFormDialogComponent } from './components/course-form-dialog/course-form-dialog.component';
 import { CoursesRoutingModule } from './courses-routing.module';
@@ -17,7 +18,7 @@ import { coursesesFeature } from './store/courses.reducer';
     CoursesComponent,
     CoursesFormDialogComponent,
     CoursesTableComponent,
-
+    CoursesDetailComponent
   ],
   imports: [
     CommonModule,

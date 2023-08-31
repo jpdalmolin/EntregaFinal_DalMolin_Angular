@@ -95,4 +95,9 @@ export class UserService {
 
 
   }
+
+  getUsersByCoursesId(courseId: number):Observable<User[]>{
+    return this.httpClient.get<User[]>(environment.baseApiUrl + `/users?courseId=${courseId}`)
+  }
+
 }
