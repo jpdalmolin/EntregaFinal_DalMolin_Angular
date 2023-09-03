@@ -51,7 +51,7 @@ export class AuthService {
           // LOGIN VALIDO
           //this._authUser$.next(authUser);
           this.store.dispatch(AuthActions.setAuthUser({ payload: authUser }));
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/dashboard/home']);
           localStorage.setItem('token', authUser.token);
         } else {
           // LOGIN INVALIDO
