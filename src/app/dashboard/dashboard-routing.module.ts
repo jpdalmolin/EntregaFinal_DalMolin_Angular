@@ -1,6 +1,7 @@
 import { HomeComponent } from './pages/home/home.component'
 import { NgModule } from '@angular/core'
 import { RouterModule } from '@angular/router'
+import { adminGuard } from '../core/guards/admin.guard'
 
 @NgModule({
     imports:[
@@ -12,6 +13,7 @@ import { RouterModule } from '@angular/router'
             },
             {
               path: 'users',
+              canActivate:[adminGuard],
               loadChildren: () => import('./pages/users/users.module').then((m) => m.UsersModule),
               
             },
@@ -26,9 +28,16 @@ import { RouterModule } from '@angular/router'
             
             },
             {
+              path: 'inscriptions',
+              loadChildren: () => import('./pages/inscriptions/inscriptions.module').then((m) => m.InscriptionsModule),
+            
+            },
+            
+            {
               path: '**',
               redirectTo: 'home',
             },
+           
           ]),
     ],
     exports:[RouterModule]

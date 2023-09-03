@@ -1,5 +1,5 @@
 import { BehaviorSubject, Observable, Subject, delay, map, mergeMap, of, take } from 'rxjs';
-import { Courses, CreateCoursesData, UpdateCoursesData } from './models';
+import { Course, CreateCoursesData, UpdateCoursesData } from './models';
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class CoursesService {
-  private _courses$ = new BehaviorSubject<Courses[]>([]);
+  private _courses$ = new BehaviorSubject<Course[]>([]);
   private courses$ = this._courses$.asObservable();
 
   private _isLoading$ = new BehaviorSubject(false);
@@ -20,7 +20,7 @@ export class CoursesService {
 
   loadCourses(): void {
     this._isLoading$.next(true);
-    this.httpClient.get<Courses[]>(environment.baseApiUrl + '/courses')
+    this.httpClient.get<Course[]>(environment.baseApiUrl + '/courses')
       
     .subscribe({
       next: (response) => {
@@ -38,7 +38,7 @@ export class CoursesService {
     })
   }
 
-  getCourses(): Observable<Courses[]> {
+  getCourses(): Observable<Course[]> {
     return this.courses$;
   }
 
@@ -50,7 +50,7 @@ export class CoursesService {
   }
 
   createCourses(payload: CreateCoursesData): void {
-    this.httpClient.post<Courses>(environment.baseApiUrl  + '/courses', { ...payload})
+    this.httpClient.post<Course>(environment.baseApiUrl  + '/courses', { ...payload})
     .pipe(
       mergeMap((coursesCreate) => this.courses$.pipe(
         take(1),

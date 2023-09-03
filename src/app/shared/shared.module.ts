@@ -8,6 +8,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSelectModule} from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -38,7 +40,9 @@ import { ResaltadoDirective } from './directives/resaltado.directive';
     ControlErrorMessagePipe,
     ResaltadoDirective,
     RepetirDirective,
-    AgrandadoDirective
+    AgrandadoDirective,
+    MatSelectModule,
+    MatProgressBarModule
   ]
 })
 export class SharedModule { }

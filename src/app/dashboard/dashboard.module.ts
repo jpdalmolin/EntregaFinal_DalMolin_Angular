@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 import { HomeModule } from './pages/home/home.module';
+import { InscriptionsModule } from './pages/inscriptions/inscriptions.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -39,6 +40,7 @@ import { UsersModule } from './pages/users/users.module';
     RouterModule,
     ClassModule,
     CoursesModule,
+    InscriptionsModule,
     DashboardRoutingModule
   ],
 

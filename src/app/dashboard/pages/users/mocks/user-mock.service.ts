@@ -9,6 +9,7 @@ export class UserMockService {
       email: 'fake@mail.com',
       password: '123456',
       token:'',
+      role:'ADMINISTRADOR',
       courseId:1
     },
   ];
