@@ -1,22 +1,23 @@
 {
   "users": [
     {
-      "name": "asdasdeee",
+      "name": "asdasdeeew",
       "surname": "asdasd",
       "email": "asd@gmail.com",
       "password": "123456",
-      "id": 1,
+      "role": "ADMINISTRADOR",
       "token": "bG1Ptx4ZztwJwAoyjxQy",
-      "courseId":1
+      "id": 1
     },
     {
       "name": "testeee",
       "surname": "test",
       "email": "test@mail.com",
       "password": "123456",
-      "id": 2,
-      "token": "bG1Ptx4ZztwJwBoyjxQy",
-      "courseId":2
+      "role": "USUARIO",
+      "token": "bG1Ptx4ZztwJwAoyjxQU",
+      "courseId": 1,
+      "id": 2
     }
   ],
   "class": [
@@ -35,11 +36,32 @@
     {
       "id": 1,
       "name": "Curso B"
-      
     },
     {
       "name": "Curso C",
       "id": 2
+    }
+  ],
+  "inscriptions": [
+    {
+      "id": 1,
+      "courseId": 1,
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "courseId": 2,
+      "userId": 1
+    },
+    {
+      "id": 3,
+      "courseId": 1,
+      "userId": 2
+    },
+    {
+      "userId": 1,
+      "courseId": 2,
+      "id": 4
     }
   ]
 }
