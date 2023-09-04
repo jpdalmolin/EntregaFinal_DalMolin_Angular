@@ -22,12 +22,12 @@
   ],
   "class": [
     {
-      "name": "Marcos",
+      "name": "Marcose",
       "description": "asd",
       "id": 1
     },
     {
-      "name": "cuetin",
+      "name": "cuetina",
       "description": "nuevo",
       "id": 2
     }
@@ -35,11 +35,15 @@
   "courses": [
     {
       "id": 1,
+      "name": "Curso A"
+    },
+    {
+      "id": 2,
       "name": "Curso B"
     },
     {
-      "name": "Curso C",
-      "id": 2
+      "name": "dasdasdsad",
+      "id": 3
     }
   ],
   "inscriptions": [
@@ -62,6 +66,21 @@
       "userId": 1,
       "courseId": 2,
       "id": 4
+    },
+    {
+      "courseId": 1,
+      "userId": 1,
+      "id": 5
+    },
+    {
+      "courseId": 2,
+      "userId": 1,
+      "id": 6
+    },
+    {
+      "courseId": 2,
+      "userId": 1,
+      "id": 7
     }
   ]
 }
