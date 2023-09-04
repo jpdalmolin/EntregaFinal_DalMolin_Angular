@@ -8,6 +8,11 @@ export interface CreateCoursesData {
 }
 
 export interface UpdateCoursesData {
-  name?: string;
-  id?:number
+  name?: string|null;
+
+}
+
+export interface CreateCoursePayload{
+  name:string|null;
+  
 }

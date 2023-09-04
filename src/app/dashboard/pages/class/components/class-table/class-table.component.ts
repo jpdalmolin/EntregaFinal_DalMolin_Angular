@@ -1,6 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Clase } from '../../models';
+import {Observable} from 'rxjs';
+import { Store } from '@ngrx/store';
+import { selectIsAdmin } from 'src/app/store/auth/auth.selectors';
 
 @Component({
   selector: 'app-class-table',
@@ -18,4 +21,9 @@ export class ClassTableComponent {
 
   @Output()
   editClass = new EventEmitter<Clase>();
+
+  constructor(private store: Store){
+    this.isAdmin$=this.store.select(selectIsAdmin);
+  }
+  public isAdmin$:Observable<boolean>;
 }

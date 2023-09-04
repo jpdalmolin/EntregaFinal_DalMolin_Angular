@@ -1,8 +1,8 @@
 <h1 mat-dialog-title>
   {{
-    editingCourses
-      ? "Editando a " + editingCourses.name
-      : "Creando Curso"
+    editingCourse
+      ? "Editando a " + editingCourse.name 
+      : "Creando usuario"
   }}
 </h1>
 <div mat-dialog-content>
@@ -12,28 +12,19 @@
     <!-- CAMPO DE NOMBRE -->
     <div class="col-6 field">
       <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Nombre</mat-label>
-        <input formControlName="name" matInput type="text" name="name" />
+        <mat-label>Curso</mat-label>
+        <input formControlName="name"  matInput type="text" name="name" />
         <!-- ERRORES -->
         <mat-error *ngFor="let error of nameControl.errors | keyvalue">
           {{ error | controlErrorMessage }}
         </mat-error>
       </mat-form-field>
 
-      <pre>{{ nameControl.errors | keyvalue | json }}</pre>
+      
     </div>
     <!-- CAMPO DE NOMBRE -->
 
-    <div class="col-6 field">
-      <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Description</mat-label>
-        <input formControlName="description" matInput type="text" name="description" />
-
-        <mat-error *ngFor="let error of descriptionControl.errors | keyvalue">
-          {{ error | controlErrorMessage }}
-        </mat-error>
-      </mat-form-field>
-    </div>
+    
 
 
   </form>

@@ -1,9 +1,11 @@
 import { BehaviorSubject, Observable, Subject, delay, map, mergeMap, of, take } from 'rxjs';
 import { Course, CreateCoursesData, UpdateCoursesData } from './models';
 
+import { CoursesActions } from './store/courses.actions';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NotifierService } from 'src/app/core/notifier/notifier.service';
+import { Store } from '@ngrx/store';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -16,7 +18,7 @@ export class CoursesService {
   private _isLoading$ = new BehaviorSubject(false);
   public isLoading$ = this._isLoading$.asObservable();
 
-  constructor(private notifier: NotifierService,private httpClient: HttpClient) {}
+  constructor(private notifier: NotifierService,private httpClient: HttpClient,private store:Store) {}
 
   loadCourses(): void {
     this._isLoading$.next(true);
@@ -77,7 +79,7 @@ export class CoursesService {
     this.httpClient.delete(environment.baseApiUrl + '/courses/' + id)
     .pipe(
       ).subscribe({
-        next: (arrayActualizado) => this.loadCourses(),
+        next: (arrayActualizado) => this.store.dispatch(CoursesActions.loadCourses())
       })
   }
 }

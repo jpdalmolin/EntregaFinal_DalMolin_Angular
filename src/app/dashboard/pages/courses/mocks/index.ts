@@ -3,14 +3,14 @@ import { Course } from "../models";
 export const COURSES_MOCK: Course[] = [
   {
     id: 1,
-    name: 'Hardware'
+    name: 'Curso A'
   },
   {
     id: 2,
-    name: 'Audio'
+    name: 'Curso B'
   },
   {
     id: 3,
-    name: 'Instrumentos'
+    name: 'dasdasdsad'
   },
 ]

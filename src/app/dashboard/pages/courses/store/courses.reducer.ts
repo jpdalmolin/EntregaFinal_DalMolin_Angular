@@ -7,14 +7,18 @@ import { CoursesActions } from './courses.actions';
 export const coursesesFeatureKey = 'courseses';
 
 export interface State  {
-  courses:Course[]
+  data:Course[]
   courseDetail:Course|null,
+  loading:boolean;
+  error:unknown;
 }
 
 
 export const initialState: State = ({
-  courses:[],
+  data:[],
   courseDetail:null,
+  loading:false,
+  error:null,
 });
 
 export const reducer = createReducer(
@@ -23,9 +27,17 @@ export const reducer = createReducer(
   on(CoursesActions.loadCourses,state => {
     return{
       ...state,
-      courses:COURSES_MOCK
+      
+      loading: true
     }
 
+  }),
+  on(CoursesActions.loadCoursesSuccess, (state, action) => {
+    return {
+      ...state,
+      data: action.data,
+      loading: false
+    }
   }),
 
   on(CoursesActions.loadCoursesDetail, (state, action) => {

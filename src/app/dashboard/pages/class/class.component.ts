@@ -4,7 +4,10 @@ import { Observable, Subject } from 'rxjs';
 import { Clase } from './models';
 import { ClassFormDialogComponent } from './components/class-form-dialog/class-form-dialog.component';
 import { ClassService } from './class.service';
+import { ClassTableComponent } from './components/class-table/class-table.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Store } from '@ngrx/store';
+import { selectIsAdmin } from 'src/app/store/auth/auth.selectors';
 
 @Component({
   selector: 'app-class',
@@ -16,10 +19,13 @@ export class ClassComponent implements OnDestroy {
   public destroyed = new Subject<boolean>();
 
   public loading = false;
-  constructor(private matDialog: MatDialog, private classService: ClassService) {
+  constructor(private matDialog: MatDialog, private classService: ClassService,private store:Store) {
     this.classService.loadClasses();
     this.clase = this.classService.getClasses();
+    this.isAdmin$=this.store.select(selectIsAdmin);
   }
+
+  public isAdmin$:Observable<boolean>;
 
   ngOnDestroy(): void {
     this.destroyed.next(true);

@@ -33,10 +33,10 @@
       <button [routerLink]="clase.id" mat-icon-button color="primary">
         <mat-icon>visibility</mat-icon>
       </button>
-      <button (click)="editClass.emit(clase)" mat-icon-button color="primary">
+      <button [disabled]="!(isAdmin$|async)" (click)="editClass.emit(clase)" mat-icon-button color="primary">
         <mat-icon>edit</mat-icon>
       </button>
-      <button (click)="deleteClass.emit(clase)" mat-icon-button color="warn">
+      <button [disabled]="!(isAdmin$|async)" (click)="deleteClass.emit(clase)" mat-icon-button color="warn">
         <mat-icon>delete</mat-icon>
       </button>
     </td>

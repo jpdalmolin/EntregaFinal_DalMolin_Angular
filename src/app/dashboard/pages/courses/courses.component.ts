@@ -21,7 +21,7 @@ import { selectIsAdmin } from 'src/app/store/auth/auth.selectors';
 export class CoursesComponent implements OnInit {
   courses$: Observable<Course[]>;
 
-  constructor(private store: Store, private coursesService: CoursesService) {
+  constructor(private store: Store, private matDialog:MatDialog,private coursesService: CoursesService) {
     this.courses$ = this.store.select(selectCoursesArray);
     this.isAdmin$=this.store.select(selectIsAdmin);
   }
@@ -31,5 +31,29 @@ export class CoursesComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(CoursesActions.loadCourses())
+  }
+  onAdd(): void {
+    this.matDialog.open(CoursesFormDialogComponent);
+  }
+  onDelete(id: number): void {
+    this.coursesService.deleteCoursesById(id);
+  }
+  onEditCourse(courseToEdit: Course): void {
+    this.matDialog
+      // ABRO EL MODAL
+      .open(CoursesFormDialogComponent, {
+        // LE ENVIO AL MODAL, EL USUARIO QUE QUIERO EDITAR
+        data: courseToEdit,
+      })
+      // Y DESPUES DE QUE CIERRE
+      .afterClosed()
+      // HAGO ESTO...
+      .subscribe({
+        next: (courseUpdated) => {
+          if (courseUpdated) {
+            this.coursesService.updateCoursesById(courseToEdit.id, courseUpdated);
+          }
+        },
+      });
   }
 }
